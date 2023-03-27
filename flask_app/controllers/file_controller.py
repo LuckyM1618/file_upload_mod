@@ -50,7 +50,7 @@ def upload_file():
 
 @app.route('/view-image/<int:file_id>')
 def view_image(file_id):
-    return render_template('view_image.html', file=FileTest.get_one_by_id({'id': file_id}))
+    return render_template('view_image.html', file=FileTest.get_one_by_id({'id': file_id}), all_files = FileTest.get_all())
 
 if __name__=="__main__":
     app.run(debug = True)

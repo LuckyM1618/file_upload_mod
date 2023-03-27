@@ -9,5 +9,10 @@
 <body>
     <h3>Your Image Here!</h3>
     <img src="{{ url_for('static', filename='img/' + file.filename) }}" alt="image pulled from static folder">
+
+    <h3>All Files:</h3>
+    {% for f in all_files %}
+    <img src="{{ url_for('static', filename='img/' + f.filename) }}" alt="image pulled from static folder">
+    {% endfor %}
 </body>
 </html>

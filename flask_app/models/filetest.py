@@ -28,3 +28,17 @@ class FileTest:
         results = connectToMySQL( cls.db ).query_db( query, data )
 
         return FileTest(results[0])
+    
+
+    @classmethod
+    def get_all( cls ):
+        query = 'SELECT * from files'
+
+        results = connectToMySQL( cls.db ).query_db( query )
+
+        files = []
+
+        for row in results:
+            files.append(cls(row))
+
+        return files
